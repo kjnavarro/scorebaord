@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scoreboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .scoreboard {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    .scores {
+      display: flex;
+      justify-content: space-around;
+      margin: 1rem 0;
+    }
+    .team {
+      flex: 1;
+    }
+    .score {
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin: 0.2rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .reset {
+      background: #dc3545;
+    }
+    .reset:hover {
+      background: #a71d2a;
+    }
+  </style>
+</head>
+<body>
+  <div class="scoreboard">
+    <h1>Scoreboard</h1>
+    <div class="scores">
+      <div class="team">
+        <h2>Team A</h2>
+        <div id="scoreA" class="score">0</div>
+        <button onclick="increment('A')">+1</button>
+      </div>
+      <div class="team">
+        <h2>Team B</h2>
+        <div id="scoreB" class="score">0</div>
+        <button onclick="increment('B')">+1</button>
+      </div>
+    </div>
+    <button class="reset" onclick="resetScores()">Reset</button>
+  </div>
+
+  <script>
+    let scoreA = 0;
+    let scoreB = 0;
+
+    function increment(team) {
+      if (team === 'A') {
+        scoreA++;
+        document.getElementById('scoreA').innerText = scoreA;
+      } else {
+        scoreB++;
+        document.getElementById('scoreB').innerText = scoreB;
+      }
+    }
+
+    function resetScores() {
+      scoreA = 0;
+      scoreB = 0;
+      document.getElementById('scoreA').innerText = scoreA;
+      document.getElementById('scoreB').innerText = scoreB;
+    }
+  </script>
+</body>
+</html>
